@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A71C5210-3D20-4C71-9652-85A8DB6F634C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseDebugLibraries Condition="'$(Configuration)' == 'Debug'">true</UseDebugLibraries>
+    <UseDebugLibraries Condition="'$(Configuration)' == 'Release'">false</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup>
+    <OpenCvRoot Condition="'$(TE_MST_OPENCV_DIR)' == ''">D:\Ywt\openCV-4_12_0</OpenCvRoot>
+    <OpenCvRoot Condition="'$(TE_MST_OPENCV_DIR)' != ''">$(TE_MST_OPENCV_DIR)</OpenCvRoot>
+    <OpenCvBin Condition="'$(TE_MST_OPENCV_BIN)' == ''">$(OpenCvRoot)\x64\vc16\bin</OpenCvBin>
+    <OpenCvBin Condition="'$(TE_MST_OPENCV_BIN)' != ''">$(TE_MST_OPENCV_BIN)</OpenCvBin>
+    <OpenCvLibrary Condition="'$(Configuration)' == 'Debug'">opencv_world4120d.lib</OpenCvLibrary>
+    <OpenCvLibrary Condition="'$(Configuration)' == 'Release'">opencv_world4120.lib</OpenCvLibrary>
+    <OutDir>$(ProjectDir)build\vs\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)build\vs\obj\$(Configuration)\</IntDir>
+    <TargetName>te_mst_demo</TargetName>
+    <LocalDebuggerEnvironment>PATH=$(OpenCvBin);%PATH%</LocalDebuggerEnvironment>
+    <LocalDebuggerWorkingDirectory>$(ProjectDir)</LocalDebuggerWorkingDirectory>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <AdditionalIncludeDirectories>$(OpenCvRoot)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <Optimization Condition="'$(Configuration)' == 'Release'">MaxSpeed</Optimization>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>$(OpenCvRoot)\x64\vc16\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(OpenCvLibrary);%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="te_mst.h" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="te_mst.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

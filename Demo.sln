@@ -1,0 +1,18 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.0.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{BC8A1FFA-BEE3-4634-8014-F334798102B3}") = "Demo", "Demo.vcxproj", "{A71C5210-3D20-4C71-9652-85A8DB6F634C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A71C5210-3D20-4C71-9652-85A8DB6F634C}.Debug|x64.ActiveCfg = Debug|x64
+		{A71C5210-3D20-4C71-9652-85A8DB6F634C}.Debug|x64.Build.0 = Debug|x64
+		{A71C5210-3D20-4C71-9652-85A8DB6F634C}.Release|x64.ActiveCfg = Release|x64
+		{A71C5210-3D20-4C71-9652-85A8DB6F634C}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+EndGlobal
