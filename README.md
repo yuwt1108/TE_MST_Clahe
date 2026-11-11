@@ -1,4 +1,4 @@
-# TE-MST C++ 小样
+# TE-MST C++ 
 
 运行一级拉普拉斯金字塔融合和 Smooth CLAHE。低频等权，高频采用同向细节增强。CLAHE 使用 `clipLimit=4.0`、64×64 像素分块、LUT 平滑和双线性插值。
 
