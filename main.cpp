@@ -43,8 +43,8 @@ void writePng(const fs::path& path, const cv::Mat& image) {
 
 int wmain(int argc, wchar_t* argv[]) {
     // 在这里填写可见光图、红外图和输出目录。支持中文路径。
-    const fs::path visibleInput = LR"(sample\Road_Vis.png)";
-    const fs::path infraredInput = LR"(sample\Road_IR.png)";
+    const fs::path visibleInput = LR"(sample\Visible\Road.png)";
+    const fs::path infraredInput = LR"(sample\Infrared\Road.png)";
     const fs::path outputDirectory = LR"(result_manual)";
 
     if (argc != 1 && argc != 4) {
