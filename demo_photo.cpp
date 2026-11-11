@@ -43,8 +43,8 @@ void writePng(const fs::path& path, const cv::Mat& image) {
 
 int wmain(int argc, wchar_t* argv[]) {
     // 在这里填写可见光图、红外图和输出目录。支持中文路径。
-    const fs::path visibleInput = LR"(sample\Visible\Road.png)";
-    const fs::path infraredInput = LR"(sample\Infrared\Road.png)";
+    const fs::path visibleInput = LR"(sample\Visible\1824.bmp)";
+    const fs::path infraredInput = LR"(sample\Infrared\1824.bmp)";
     const fs::path outputDirectory = LR"(result_manual)";
 
     if (argc != 1 && argc != 4) {
@@ -71,14 +71,13 @@ int wmain(int argc, wchar_t* argv[]) {
 
         const auto enhancementEnd = std::chrono::steady_clock::now();
         fs::create_directories(output);
-        writePng(output / "fused.png", fused);
-        writePng(output / "enhanced.png", enhanced);
+        writePng(output / "fused_enhanced.png", enhanced);
 
         using Milliseconds = std::chrono::duration<double, std::milli>;
         std::cout << fused.cols << "x" << fused.rows
                   << "  Fusion: " << Milliseconds(fusionEnd - start).count()
                   << " ms  CLAHE: " << Milliseconds(enhancementEnd - fusionEnd).count()
-                  << " ms\nWrote fused.png and enhanced.png\n";
+                  << " ms\nWrote fused_enhanced.png\n";
     } catch (const std::exception& error) {
         std::cerr << error.what() << '\n';
         return 1;

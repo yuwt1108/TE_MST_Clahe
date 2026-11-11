@@ -9,8 +9,19 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="te_mst.h"><Filter>头文件</Filter></ClInclude>
-    <ClCompile Include="main.cpp"><Filter>源文件</Filter></ClCompile>
-    <ClCompile Include="te_mst.cpp"><Filter>源文件</Filter></ClCompile>
+    <ClInclude Include="te_mst.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClCompile Include="demo_photo.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="te_mst.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="demo_video.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

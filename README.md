@@ -1,4 +1,4 @@
-# TE-MST-Clahe C++ 
+# TE-MST C++ 小样
 
 这是一个面向实时应用的红外与可见光图像融合增强 C++ 示例。程序将同尺寸、已配准的红外图像和可见光图像融合为一幅图像，再通过 Smooth CLAHE 增强局部对比度。
 
@@ -8,7 +8,18 @@
 
 ## 运行
 
-打开 `Demo.sln`，选择 **Release | x64**，按 **Ctrl+F5**。入口在 `main.cpp` 的 `wmain`。在 `wmain` 开头填写 `visibleInput`、`infraredInput` 和 `outputDirectory`。默认路径指向附带样图，输出 `fused.png` 和 `enhanced.png`。同名输出文件会被覆盖。
+打开 `Demo.sln`，选择 **Release | x64**，按 **Ctrl+F5** 运行视频示例。也可以用 CMake 构建 `demo_photo` 和 `demo_video` 两个独立目标。
+
+```powershell
+cmake -S . -B build/demo -A x64 -DOpenCV_DIR="<OpenCV 安装路径>"
+cmake --build build/demo --config Release
+.\build\demo\Release\demo_photo.exe
+.\build\demo\Release\demo_video.exe
+```
+
+从仓库根目录运行。OpenCV 的 DLL 目录需要在 `PATH` 中。照片示例默认使用 `sample/Visible/1824.bmp` 与 `sample/Infrared/1824.bmp`，输出 `result_manual/fused_enhanced.png`。视频示例默认使用 `sample/video/VOT_RGBT2019_crouch` 中的两段 MP4，输出 `result_manual/fused_enhanced_crouch.mp4`。同名输出文件会被覆盖，视频预览中可按 Esc 停止。
+
+也可以依次传入可见光输入、红外输入和输出位置。照片模式的输出位置为目录，视频模式为 MP4 路径。
 
 融合与增强均在 `te_mst.h/.cpp`。工程使用 Visual Studio 2019 和 OpenCV 4.12。
 

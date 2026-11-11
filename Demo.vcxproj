@@ -54,7 +54,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="te_mst.h" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="demo_video.cpp" />
+    <ClCompile Include="demo_photo.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="te_mst.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
